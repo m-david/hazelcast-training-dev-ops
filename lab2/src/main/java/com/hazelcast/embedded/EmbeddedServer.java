@@ -6,12 +6,12 @@ import com.hazelcast.core.IMap;
 
 import java.util.stream.IntStream;
 
-public class EmbeddedServer2 {
+public class EmbeddedServer {
 
     public static void main(String[] args) {
         HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance();
 
-        IMap<Integer, String> labMap = hazelcastInstance.getMap("lab-test");
+        IMap<Integer, String> labMap = hazelcastInstance.getMap("lab-test-embedded");
         IntStream.range(0, 100000).forEach(id -> labMap.put(id, "value-"+id));
     }
 }

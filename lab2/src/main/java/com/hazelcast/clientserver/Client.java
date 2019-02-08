@@ -11,7 +11,7 @@ public class Client {
     public static void main(String[] args) {
         HazelcastInstance hazelcastInstance = HazelcastClient.newHazelcastClient();
 
-        IMap<Integer, String> labMap = hazelcastInstance.getMap("lab-test");
+        IMap<Integer, String> labMap = hazelcastInstance.getMap("lab-test-client");
         IntStream.range(0, 100000).forEach(id -> labMap.put(id, "value-"+id));
     }
 }

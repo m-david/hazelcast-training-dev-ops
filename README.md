@@ -37,21 +37,30 @@ Client/Server (version=3.9.x)
 ## Lab3
 
 #### Data Structures
-  * IMap operations
+  * IMap operations through Management Center
     * Put many
     * View in Management Center
     * Rest Endpoints ???
   * NearCache
   
 ## Lab4
-4. Maintenance and Updates
+
+* Maintenance and Updates
   * Rolling Upgrade Server to 3.10.x
   * Upgrade Client to 3.10.x
   * Upgrade Management Center to 3.11.3
+ 
+ Notes:
+ 
+ * For this lab, we'll need a 2 (3?) member cluster running 3.9.4.
+ * Perform rolling member upgrade
+ * Check that no data loss
+
+ * Perform Mangement Center version upgrade
   
 
 ## Lab5
-5. WAN
+* WAN
   * Create Map Dynamically
   * Create WAN Sync
 

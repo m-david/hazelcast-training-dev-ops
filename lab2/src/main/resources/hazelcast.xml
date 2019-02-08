@@ -6,6 +6,7 @@
   <!-- Import license key configuration -->
   <import resource="member-license-key.xml"/>
 
+  <management-center enabled="true">http://localhost:8080/hazelcast-mancenter</management-center>
   <group>
     <name>dev</name>
     <password>dev-pass</password>
