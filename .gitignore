@@ -1,7 +1,10 @@
 ## Ignore files
 
-/target
-.idea
+**/target/
+*.class
+*.jar
+.idea/
+.eclipse
 
 
 

@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.hazelcast</groupId>
-  <artifactId>hazelcast-dev-ops</artifactId>
+  <artifactId>hazelcast-dev-ops-training</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
 
