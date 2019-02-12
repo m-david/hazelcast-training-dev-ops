@@ -8,10 +8,10 @@ import com.hazelcast.core.IMap;
 
 import java.util.stream.IntStream;
 
-public class ClientNY {
+public class ClientUS {
 
     public static void main(String[] args) {
-        ClientConfig config = new ClientClasspathXmlConfig("hazelcast-client-ny.xml");
+        ClientConfig config = new ClientClasspathXmlConfig("hazelcast-client-us.xml");
         HazelcastInstance hazelcastInstance = HazelcastClient.newHazelcastClient(config);
 
         IMap<Integer, String> labMap = hazelcastInstance.getMap("my-shared-map");

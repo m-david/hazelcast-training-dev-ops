@@ -23,8 +23,4 @@
     </cluster-members>
   </network>
 
-  <!--<near-cache name="my-shared-map">-->
-      <!--<eviction eviction-policy="LFU" max-size-policy="ENTRY_COUNT" size="50000"/>-->
-  <!--</near-cache>-->
-
 </hazelcast-client>

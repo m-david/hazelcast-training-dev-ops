@@ -8,8 +8,8 @@
 
   <management-center enabled="true">http://localhost:8080/hazelcast-mancenter</management-center>
   <group>
-    <name>dev-ny</name>
-    <password>dev-ny-pass</password>
+    <name>dev-us</name>
+    <password>dev-us-pass</password>
   </group>
 
   <wan-replication name="my-wan-cluster">
