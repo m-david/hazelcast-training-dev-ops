@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-3.10.xsd"
+           xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Import license key configuration -->
+  <import resource="member-license-key.xml"/>
+
+  <management-center enabled="true">http://localhost:8080/hazelcast-mancenter</management-center>
+  <group>
+    <name>dev-ny</name>
+    <password>dev-ny-pass</password>
+  </group>
+
+  <wan-replication name="my-wan-cluster">
+
+    <wan-publisher group-name="dev-uk">
+      <class-name>com.hazelcast.enterprise.wan.replication.WanBatchReplication</class-name>
+      <queue-full-behavior>THROW_EXCEPTION</queue-full-behavior>
+      <queue-capacity>100000</queue-capacity>
+      <properties>
+        <property name="batch.size">500</property>
+        <property name="batch.max.delay.millis">1000</property>
+        <property name="ack.type">ACK_ON_OPERATION_COMPLETE</property>
+        <property name="endpoints">127.0.0.1:6201,127.0.0.1:6202</property>
+        <property name="group.password">dev-uk-pass</property>
+      </properties>
+    </wan-publisher>
+
+  </wan-replication>
+
+  <map name="my-shared-map">
+    <wan-replication-ref name="my-wan-cluster">
+      <merge-policy>com.hazelcast.map.merge.PassThroughMergePolicy</merge-policy>
+      <republishing-enabled>false</republishing-enabled>
+    </wan-replication-ref>
+  </map>
+
+  <network>
+    <port auto-increment="true">6101</port>
+
+    <join>
+      <!-- For trainings everyone should create his/her own cluster, therefore
+      multicast is disabled and other nodes are only searched for on localhost -->
+      <multicast enabled="false"/>
+      <tcp-ip enabled="true">
+        <members>127.0.0.1:6101</members>
+        <members>127.0.0.1:6102</members>
+      </tcp-ip>
+    </join>
+
+
+
+
+
+  </network>
+</hazelcast>

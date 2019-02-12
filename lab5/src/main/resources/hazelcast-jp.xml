@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-3.10.xsd"
+           xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Import license key configuration -->
+  <import resource="member-license-key.xml"/>
+
+  <management-center enabled="true">http://localhost:8080/hazelcast-mancenter</management-center>
+  <group>
+    <name>dev-jp</name>
+    <password>dev-jp-pass</password>
+  </group>
+
+  <network>
+    <port auto-increment="true">6301</port>
+
+    <join>
+      <!-- For trainings everyone should create his/her own cluster, therefore
+      multicast is disabled and other nodes are only searched for on localhost -->
+      <multicast enabled="false"/>
+      <tcp-ip enabled="true">
+        <members>127.0.0.1:6301</members>
+        <members>127.0.0.1:6302</members>
+      </tcp-ip>
+    </join>
+  </network>
+
+  <map name="my-shared-map">
+  </map>
+
+</hazelcast>
