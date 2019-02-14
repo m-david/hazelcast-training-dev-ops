@@ -3,11 +3,5 @@
            xmlns="http://www.hazelcast.com/schema/config"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <license-key>YOUR_LICENSE_HERE</license-key>
-
-    <properties>
-        <property name="hazelcast.phone.home.enabled ">false</property>
-        <property name="hazelcast.rest.enabled">true</property>
-    </properties>
 
 </hazelcast>

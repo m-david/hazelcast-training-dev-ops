@@ -6,6 +6,11 @@
   <!-- Import license key configuration -->
   <import resource="member-license-key.xml"/>
 
+  <properties>
+    <property name="hazelcast.phone.home.enabled ">false</property>
+    <property name="hazelcast.rest.enabled">true</property>
+  </properties>
+
   <management-center enabled="true">http://localhost:8080/hazelcast-mancenter</management-center>
   <group>
     <name>dev-jp</name>

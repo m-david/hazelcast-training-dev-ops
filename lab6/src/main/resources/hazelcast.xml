@@ -13,25 +13,21 @@
 
   <management-center enabled="true">http://localhost:8080/hazelcast-mancenter</management-center>
   <group>
-    <name>dev-uk</name>
-    <password>dev-uk-pass</password>
+    <name>dev-lab6</name>
+    <password>dev-pass</password>
   </group>
 
   <network>
-    <port auto-increment="true">6201</port>
+    <port auto-increment="true">5901</port>
 
     <join>
       <!-- For trainings everyone should create his/her own cluster, therefore
       multicast is disabled and other nodes are only searched for on localhost -->
       <multicast enabled="false"/>
       <tcp-ip enabled="true">
-        <members>127.0.0.1:6201</members>
-        <members>127.0.0.1:6202</members>
+        <members>127.0.0.1:5901</members>
+        <members>127.0.0.1:5902</members>
       </tcp-ip>
     </join>
   </network>
-
-  <map name="my-shared-map">
-  </map>
-
 </hazelcast>
