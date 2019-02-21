@@ -27,6 +27,7 @@
         <property name="batch.size">500</property>
         <property name="batch.max.delay.millis">1000</property>
         <property name="ack.type">ACK_ON_OPERATION_COMPLETE</property>
+        <!-- we should provide at least 2 endpoints for HA -->
         <property name="endpoints">127.0.0.1:6201,127.0.0.1:6202</property>
         <property name="group.password">dev-uk-pass</property>
       </properties>
