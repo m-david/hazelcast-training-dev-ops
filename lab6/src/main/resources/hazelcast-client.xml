@@ -24,7 +24,7 @@
   </network>
 
   <near-cache name="lab-test-client">
-      <eviction eviction-policy="LFU" max-size-policy="ENTRY_COUNT" size="50000"/>
+      <eviction eviction-policy="LFU" max-size-policy="ENTRY_COUNT" size="500"/>
   </near-cache>
 
 </hazelcast-client>

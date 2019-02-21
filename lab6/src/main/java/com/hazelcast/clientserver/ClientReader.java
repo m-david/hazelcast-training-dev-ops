@@ -1,6 +1,8 @@
 package com.hazelcast.clientserver;
 
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.config.ClientClasspathXmlConfig;
+import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.monitor.NearCacheStats;
@@ -8,30 +10,23 @@ import com.hazelcast.monitor.NearCacheStats;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
 
-public class Client {
+public class ClientReader {
 
     public static void main(String[] args) {
-        HazelcastInstance hazelcastInstance = HazelcastClient.newHazelcastClient();
-        int offset = 0;
-        IMap<Integer, String> labMap = hazelcastInstance.getMap("lab-test-client");
-        IntStream.range(0, 100000).forEach(id -> labMap.put(id+offset, "value-"+id+offset));
+        ClientConfig config = new ClientClasspathXmlConfig("hazelcast-client.xml");
+        config.setInstanceName("client-reader");
 
-        int max = 100000;
+        HazelcastInstance hazelcastInstance = HazelcastClient.newHazelcastClient(config);
+        IMap<Integer, String> labMap = hazelcastInstance.getMap("lab-test-client");
+
+        int max = 1000;
         while(true)
         {
             try
             {
-                IntStream.range(0, 1000).forEach(id ->
-                {
-                    int ind = ThreadLocalRandom.current().nextInt(max);
-                    labMap.put(ind, "value-"+ind);
-                });
-
-                System.out.print("sleeping...");
-                Thread.sleep(15000);
                 System.out.println(" now awake.");
 
-                IntStream.range(0, 1000).forEach(id ->
+                IntStream.range(0, max).forEach(id ->
                 {
                     int ind = ThreadLocalRandom.current().nextInt(max);
                     labMap.get(ind);
@@ -39,6 +34,8 @@ public class Client {
 
                 NearCacheStats stats = labMap.getLocalMapStats().getNearCacheStats();
                 System.out.println(stats.toString());
+                System.out.print("sleeping...");
+                Thread.sleep(15000);
             }
             catch (InterruptedException e)
             {
