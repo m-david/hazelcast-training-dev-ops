@@ -68,15 +68,15 @@ Client/Server (version=3.9.x)
 
 
 ## Lab6 and Lab7
-* Revisit Rolling Upgrades (Specific for Charter)
+* Revisit Rolling Upgrades
 
 In this lab we will upgrade from HZ 3.9.x to HZ 3.10.x of a two node cluster.
 
 1. Start Server (2 instances)
 2. Start Client (1 instance)
 3. Note data in Management Center
-4. Perform rolling upgrade
-5. Note Client is still functioning.
+4. Perform rolling upgrade of servers
+5. Note Client is still functioning as version 3.9.
 
   
   
