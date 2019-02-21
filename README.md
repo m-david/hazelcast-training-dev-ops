@@ -72,10 +72,18 @@ Client/Server (version=3.9.x)
 
 In this lab we will upgrade from HZ 3.9.x to HZ 3.10.x of a two node cluster.
 
-1. Start Server (2 instances)
-2. Start Client (1 instance)
+1. Start Server (2 instances) in Lab6
+2. Start Client (1 instance) in Lab6
 3. Note data in Management Center
 4. Perform rolling upgrade of servers
+  * Stop Server 1 in Lab6
+  * Start Server 2 in Lab7
+  * Note warnings in Management Center
+  * Stop Server 2 in Lab6
+  * Start Server 2 in Lab7
+  * Note warning in Management Center
+  * Go to Administration, Rolling Upgrade
+    * Update version
 5. Note Client is still functioning as version 3.9.
 
   
