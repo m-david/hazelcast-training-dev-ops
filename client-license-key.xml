@@ -2,6 +2,6 @@
                   xmlns="http://www.hazelcast.com/schema/client-config"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <license-key>ENTERPRISE_HD#10Nodes#ufHyVaNwIO0UmSKlJ76TAjk5bEr1F2791000911100029009111410110112</license-key>
+    <license-key>Enter_Enterprise_License_Here</license-key>
 
 </hazelcast-client>
